@@ -3,4 +3,5 @@
 
 Курсову роботу виконує Герман Олександр Сергійович ІПЗ-21
 
-![DB_DEMO](https://github.com/Skiffov/OPZ_BD/assets/51057115/16650ef4-7367-414a-8aac-098794a13715)
+![image](https://github.com/Skiffov/OPZ_BD/assets/51057115/11b75e13-7dab-4f42-8565-d0f8a88dc8f1)
+
