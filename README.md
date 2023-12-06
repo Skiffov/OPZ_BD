@@ -8,9 +8,11 @@
    1. Отримання інформації про програмне забезпечення та відповідний постачальник:
 
 SELECT s.Name AS SoftwareName, s.Version, s.Cost, sup.Name AS SupplierName
+
 FROM Software s
+
 JOIN Suppliers sup ON s.SupplierID = sup.SupplierID;
 
  Результат: 
 
- ![Uploading Screenshot_20231206_121642.png…]()
+![Screenshot_20231206_121642](https://github.com/Skiffov/OPZ_BD/assets/51057115/b76cee66-69df-4fa8-82ab-dfec2a44f485)
