@@ -1,0 +1,83 @@
+CREATE TABLE Software (
+    SoftwareID INT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Version VARCHAR(50),
+    LicenseType VARCHAR(50),
+    SupplierID INT,
+    Cost DECIMAL(10, 2),
+    PurchaseDate DATE,
+    LicenseExpiryDate DATE,
+    SupportContact VARCHAR(100)
+);
+
+INSERT INTO Software (SoftwareID, Name, Version, LicenseType, SupplierID, Cost, PurchaseDate, LicenseExpiryDate, SupportContact)
+VALUES (1, 'Software X', '1.0', 'Commercial', 1, 199.99, '2023-01-15', '2024-01-15', 'support@softwareX.com'),
+       (2, 'Software Y', '2.5', 'Academic', 1, 0, '2023-02-20', '2024-02-20', 'support@softwareY.com');
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    ContactName VARCHAR(100),
+    ContactEmail VARCHAR(100),
+    Phone VARCHAR(20)
+);
+
+INSERT INTO Suppliers (SupplierID, Name, ContactName, ContactEmail, Phone)
+VALUES (1, 'Supplier A', 'John Doe', 'john@supplierA.com', '+1234567890');
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    UserName VARCHAR(50) NOT NULL,
+    DepartmentID INT,
+    SoftwareID INT,
+    LicenseKeyID INT
+);
+
+INSERT INTO Users (UserID, UserName, DepartmentID, SoftwareID, LicenseKeyID)
+VALUES (1, 'User 1', 1, 1, 1),
+       (2, 'User 2', 2, 2, 2);
+
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(100) NOT NULL
+);
+
+INSERT INTO Departments (DepartmentID, DepartmentName)
+VALUES (1, 'Department of Computer Science'),
+       (2, 'Department of Engineering'),
+       (3, 'Department of Mathematics');
+
+CREATE TABLE LicenseKeys (
+    LicenseKeyID INT PRIMARY KEY,
+    SoftwareID INT,
+    LicenseKey VARCHAR(50) NOT NULL,
+    SerialNumber VARCHAR(50),
+    ExpiryDate DATE
+);
+
+INSERT INTO LicenseKeys (LicenseKeyID, SoftwareID, LicenseKey, SerialNumber, ExpiryDate)
+VALUES (1, 1, 'ABCDEF123456', 'SN123', '2024-01-15'),
+       (2, 2, 'GHIJKL789012', 'SN456', '2024-02-20');
+
+CREATE TABLE SoftwareUpdates (
+    UpdateID INT PRIMARY KEY,
+    SoftwareID INT,
+    UpdateDate DATE,
+    Description TEXT
+);
+
+INSERT INTO SoftwareUpdates (UpdateID, SoftwareID, UpdateDate, Description)
+VALUES (1, 1, '2023-02-01', 'Bug fixes and performance improvements'),
+       (2, 2, '2023-03-15', 'Added new features and enhancements');
+
+CREATE TABLE SoftwareExpenses (
+    ExpenseID INT PRIMARY KEY,
+    SoftwareID INT,
+    Cost DECIMAL(10, 2),
+    ExpenseDate DATE,
+    Description TEXT
+);
+
+INSERT INTO SoftwareExpenses (ExpenseID, SoftwareID, Cost, ExpenseDate, Description)
+VALUES (1, 1, 199.99, '2023-01-15', 'Initial purchase cost'),
+       (2, 2, 0, '2023-02-20', 'Academic license, no cost');
