@@ -33,13 +33,10 @@ JOIN Software s ON su.SoftwareID = s.SoftwareID;
 
    3. Вибірка користувачів та відповідних відомостей про програмне забезпечення:
 
-SELECT u.UserID, u.UserName, u.DepartmentID,
-
-       s.Name AS SoftwareName, s.Version, s.LicenseType,
-       
-       lk.LicenseKey, lk.SerialNumber, lk.ExpiryDate
-       
-FROM Users u
+   SELECT u.UserID, u.UserName, u.DepartmentID,  
+   s.Name AS SoftwareName, s.Version, s.LicenseType,  
+   lk.LicenseKey, lk.SerialNumber, lk.ExpiryDate  
+   FROM Users u
 
 JOIN Software s ON u.SoftwareID = s.SoftwareID
 
