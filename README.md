@@ -28,7 +28,7 @@ JOIN Software s ON su.SoftwareID = s.SoftwareID;
 
 Результат: 
 
-![Screenshot_20231206_121642](https://github.com/Skiffov/OPZ_BD/assets/51057115/62cb6d5f-f0e4-4a50-955e-6ab7e09f1bae)
+![Screenshot_20231206_122648](https://github.com/Skiffov/OPZ_BD/assets/51057115/6a8388c0-cdb0-4d83-bcbb-d65263596c4c)
 
    3. Вибірка користувачів та відповідних відомостей про програмне забезпечення:
 
