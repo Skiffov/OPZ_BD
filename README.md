@@ -7,10 +7,8 @@
 
    1. Отримання інформації про програмне забезпечення та відповідний постачальник:
 
-SELECT s.Name AS SoftwareName, s.Version, s.Cost, sup.Name AS SupplierName
-
-FROM Software s
-
+SELECT s.Name AS SoftwareName, s.Version, s.Cost, sup.Name AS SupplierName  
+FROM Software s  
 JOIN Suppliers sup ON s.SupplierID = sup.SupplierID;
 
  Результат: 
@@ -19,12 +17,9 @@ JOIN Suppliers sup ON s.SupplierID = sup.SupplierID;
 
    2. Перегляд інформації про оновлення програмного забезпечення:
 
-SELECT su.UpdateID, su.SoftwareID, su.UpdateDate, su.Description,
-
-       s.Name AS SoftwareName, s.Version
-
-FROM SoftwareUpdates su
-
+SELECT su.UpdateID, su.SoftwareID, su.UpdateDate, su.Description,  
+s.Name AS SoftwareName, s.Version  
+FROM SoftwareUpdates su  
 JOIN Software s ON su.SoftwareID = s.SoftwareID;
 
 Результат: 
@@ -36,11 +31,9 @@ JOIN Software s ON su.SoftwareID = s.SoftwareID;
    SELECT u.UserID, u.UserName, u.DepartmentID,  
    s.Name AS SoftwareName, s.Version, s.LicenseType,  
    lk.LicenseKey, lk.SerialNumber, lk.ExpiryDate  
-   FROM Users u
-
-JOIN Software s ON u.SoftwareID = s.SoftwareID
-
-LEFT JOIN LicenseKeys lk ON u.LicenseKeyID = lk.LicenseKeyID;
+   FROM Users u  
+   JOIN Software s ON u.SoftwareID = s.SoftwareI  
+   LEFT JOIN LicenseKeys lk ON u.LicenseKeyID = lk.LicenseKeyID;
 
 Результат: 
 
