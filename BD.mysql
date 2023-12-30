@@ -5,12 +5,12 @@ CREATE TABLE Software (
     LicenseType VARCHAR(50),
     SupplierID INT,
     Cost DECIMAL(10, 2),
-    PurchaseDate DATE,
-    LicenseExpiryDate DATE,
+    ExpenseDate DATE,
+    ExpiryDate DATE,
     SupportContact VARCHAR(100)
 );
 
-INSERT INTO Software (SoftwareID, Name, Version, LicenseType, SupplierID, Cost, PurchaseDate, LicenseExpiryDate, SupportContact)
+INSERT INTO Software (SoftwareID, Name, Version, LicenseType, SupplierID, Cost, ExpenseDate, ExpiryDate, SupportContact)
 VALUES  (1, 'Autodesk AutoCAD', '2023', 'Commercial', 1, 899.99, '2023-07-10', '2024-07-10', 'support@autodesk.com'),
         (2, 'MATLAB', 'R2023a', 'Academic', 2, 0, '2023-08-15', '2024-08-15', 'support@mathworks.com'),
         (3, 'Adobe Illustrator', '2023', 'Commercial', 8, 699.99, '2023-09-05', '2024-09-05', 'support@adobe.com'),
