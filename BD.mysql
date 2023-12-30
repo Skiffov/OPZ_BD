@@ -22,7 +22,7 @@ VALUES  (1, 'Autodesk AutoCAD', '2023', 'Commercial', 1, 899.99, '2023-07-10', '
         (9, 'SolidWorks', '2023', 'Commercial', 7, 899.99, '2024-04-10', '2025-04-10', 'support@solidworks.com'),
         (10, 'Adobe Photoshop', '2022', 'Commercial', 8, 599.99, '2023-05-20', '2024-05-20', 'support@adobe.com'),
         (11, 'Microsoft Office', '365', 'Subscription', 9, 99.99, '2023-06-10', '2024-06-10', 'support@microsoft.com');
-
+        
 CREATE TABLE Suppliers (
     SupplierID INT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
@@ -42,26 +42,6 @@ VALUES  (1, 'Autodesk Inc.', 'Emily Clark', 'emily@autodesk.com', '+112233445577
         (8, 'Adobe Inc.', 'Samantha Johnson', 'samantha@adobe.com', '+112233445566'),
         (9, 'Microsoft Corporation', 'Robert Smith', 'robert@microsoft.com', '+998877665544');
 
-CREATE TABLE Users (
-    UserID INT PRIMARY KEY,
-    UserName VARCHAR(50) NOT NULL,
-    DepartmentID INT,
-    SoftwareID INT,
-    LicenseKeyID INT
-);
-
-INSERT INTO Users (UserID, UserName, DepartmentID, SoftwareID, LicenseKeyID)
-VALUES 
-    (1, 'John Doe', 1, 1, 1),
-    (2, 'Alice Smith', 2, 2, 2),
-    (3, 'Bob Johnson', 3, 3, 3),
-    (4, 'Emma Brown', 1, 4, 4),
-    (5, 'William Clark', 2, 5, 5),
-    (6, 'Sophia Lee', 3, 6, 6),
-    (7, 'James Wilson', 1, 7, 7),
-    (8, 'Olivia Anderson', 2, 8, 8),
-    (9, 'Liam Martinez', 3, 9, 9),
-    (10, 'Charlotte Garcia', 1, 10, 10);
 
 CREATE TABLE Departments (
     DepartmentID INT PRIMARY KEY,
@@ -86,7 +66,8 @@ CREATE TABLE LicenseKeys (
     SoftwareID INT,
     LicenseKey VARCHAR(50) NOT NULL,
     SerialNumber VARCHAR(50),
-    ExpiryDate DATE
+    ExpiryDate DATE,
+    FOREIGN KEY (SoftwareID) REFERENCES Software(SoftwareID)
 );
 
 INSERT INTO LicenseKeys (LicenseKeyID, SoftwareID, LicenseKey, SerialNumber, ExpiryDate)
@@ -107,7 +88,8 @@ CREATE TABLE SoftwareUpdates (
     UpdateID INT PRIMARY KEY,
     SoftwareID INT,
     UpdateDate DATE,
-    Description TEXT
+    Description TEXT,
+    FOREIGN KEY (SoftwareID) REFERENCES Software(SoftwareID)
 );
 
 INSERT INTO SoftwareUpdates (UpdateID, SoftwareID, UpdateDate, Description)
@@ -129,7 +111,8 @@ CREATE TABLE SoftwareExpenses (
     SoftwareID INT,
     Cost DECIMAL(10, 2),
     ExpenseDate DATE,
-    Description TEXT
+    Description TEXT,
+    FOREIGN KEY (SoftwareID) REFERENCES Software(SoftwareID)
 );
 
 INSERT INTO SoftwareExpenses (ExpenseID, SoftwareID, Cost, ExpenseDate, Description)
@@ -145,3 +128,27 @@ VALUES
     (9, 9, 899.99, '2024-04-10', 'Commercial license purchase'),
     (10, 10, 599.99, '2023-05-20', 'Initial purchase cost'),
     (11, 11, 99.99, '2023-06-10', 'Subscription renewal');
+    
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    UserName VARCHAR(50) NOT NULL,
+    DepartmentID INT,
+    SoftwareID INT,
+    LicenseKeyID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+    FOREIGN KEY (SoftwareID) REFERENCES Software(SoftwareID),
+    FOREIGN KEY (LicenseKeyID) REFERENCES LicenseKeys(LicenseKeyID)
+);
+
+INSERT INTO Users (UserID, UserName, DepartmentID, SoftwareID, LicenseKeyID)
+VALUES 
+    (1, 'John Doe', 1, 1, 1),
+    (2, 'Alice Smith', 2, 2, 2),
+    (3, 'Bob Johnson', 3, 3, 3),
+    (4, 'Emma Brown', 1, 4, 4),
+    (5, 'William Clark', 2, 5, 5),
+    (6, 'Sophia Lee', 3, 6, 6),
+    (7, 'James Wilson', 1, 7, 7),
+    (8, 'Olivia Anderson', 2, 8, 8),
+    (9, 'Liam Martinez', 3, 9, 9),
+    (10, 'Charlotte Garcia', 1, 10, 10);
