@@ -11,8 +11,17 @@ CREATE TABLE Software (
 );
 
 INSERT INTO Software (SoftwareID, Name, Version, LicenseType, SupplierID, Cost, PurchaseDate, LicenseExpiryDate, SupportContact)
-VALUES (1, 'Software X', '1.0', 'Commercial', 1, 199.99, '2023-01-15', '2024-01-15', 'support@softwareX.com'),
-       (2, 'Software Y', '2.5', 'Academic', 1, 0, '2023-02-20', '2024-02-20', 'support@softwareY.com');
+VALUES  (1, 'Autodesk AutoCAD', '2023', 'Commercial', 1, 899.99, '2023-07-10', '2024-07-10', 'support@autodesk.com'),
+        (2, 'MATLAB', 'R2023a', 'Academic', 2, 0, '2023-08-15', '2024-08-15', 'support@mathworks.com'),
+        (3, 'Adobe Illustrator', '2023', 'Commercial', 8, 699.99, '2023-09-05', '2024-09-05', 'support@adobe.com'),
+        (4, 'Unity', '2023.1', 'Educational', 3, 0, '2023-11-15', NULL, 'support@unity.com'),
+        (5, 'Oracle Database', '19c', 'Enterprise', 4, 1999.99, '2023-12-20', '2024-12-20', 'support@oracle.com'),
+        (6, 'Adobe Premiere Pro', '2023', 'Commercial', 8, 799.99, '2024-01-25', '2025-01-25', 'support@adobe.com'),
+        (7, 'SketchUp', '2023', 'Educational', 5, 299.99, '2024-02-28', NULL, 'support@sketchup.com'),
+        (8, 'LabVIEW', '2023', 'Academic', 6, 599.99, '2024-03-05', '2025-03-05', 'support@labview.com'),
+        (9, 'SolidWorks', '2023', 'Commercial', 7, 899.99, '2024-04-10', '2025-04-10', 'support@solidworks.com'),
+        (10, 'Adobe Photoshop', '2022', 'Commercial', 8, 599.99, '2023-05-20', '2024-05-20', 'support@adobe.com'),
+        (11, 'Microsoft Office', '365', 'Subscription', 9, 99.99, '2023-06-10', '2024-06-10', 'support@microsoft.com');
 
 CREATE TABLE Suppliers (
     SupplierID INT PRIMARY KEY,
@@ -23,7 +32,15 @@ CREATE TABLE Suppliers (
 );
 
 INSERT INTO Suppliers (SupplierID, Name, ContactName, ContactEmail, Phone)
-VALUES (1, 'Supplier A', 'John Doe', 'john@supplierA.com', '+1234567890');
+VALUES  (1, 'Autodesk Inc.', 'Emily Clark', 'emily@autodesk.com', '+112233445577'),
+        (2, 'MathWorks', 'Daniel Johnson', 'daniel@mathworks.com', '+998877665522'),
+        (3, 'Unity Technologies', 'Jessica Lee', 'jessica@unity.com', '+112233445599'),
+        (4, 'Oracle Corporation', 'Andrew Miller', 'andrew@oracle.com', '+998877665511'),
+        (5, 'Trimble Inc.', 'Sophie Davis', 'sophie@sketchup.com', '+112233445522'),
+        (6, 'National Instruments', 'William Brown', 'william@labview.com', '+998877665533'),
+        (7, 'Dassault Systèmes', 'Emily Wilson', 'emily@solidworks.com', '+112233445544'),
+        (8, 'Adobe Inc.', 'Samantha Johnson', 'samantha@adobe.com', '+112233445566'),
+        (9, 'Microsoft Corporation', 'Robert Smith', 'robert@microsoft.com', '+998877665544');
 
 CREATE TABLE Users (
     UserID INT PRIMARY KEY,
@@ -34,8 +51,17 @@ CREATE TABLE Users (
 );
 
 INSERT INTO Users (UserID, UserName, DepartmentID, SoftwareID, LicenseKeyID)
-VALUES (1, 'User 1', 1, 1, 1),
-       (2, 'User 2', 2, 2, 2);
+VALUES 
+    (1, 'John Doe', 1, 1, 1),
+    (2, 'Alice Smith', 2, 2, 2),
+    (3, 'Bob Johnson', 3, 3, 3),
+    (4, 'Emma Brown', 1, 4, 4),
+    (5, 'William Clark', 2, 5, 5),
+    (6, 'Sophia Lee', 3, 6, 6),
+    (7, 'James Wilson', 1, 7, 7),
+    (8, 'Olivia Anderson', 2, 8, 8),
+    (9, 'Liam Martinez', 3, 9, 9),
+    (10, 'Charlotte Garcia', 1, 10, 10);
 
 CREATE TABLE Departments (
     DepartmentID INT PRIMARY KEY,
@@ -43,9 +69,17 @@ CREATE TABLE Departments (
 );
 
 INSERT INTO Departments (DepartmentID, DepartmentName)
-VALUES (1, 'Department of Computer Science'),
-       (2, 'Department of Engineering'),
-       (3, 'Department of Mathematics');
+VALUES 
+    (1, 'Faculty of Engineering'),
+    (2, 'Faculty of Computer Science'),
+    (3, 'Faculty of Arts and Design'),
+    (4, 'Faculty of Business Administration'),
+    (5, 'Faculty of Sciences'),
+    (6, 'Faculty of Medicine'),
+    (7, 'Faculty of Social Sciences'),
+    (8, 'Faculty of Law'),
+    (9, 'Faculty of Education'),
+    (10, 'Faculty of Architecture');
 
 CREATE TABLE LicenseKeys (
     LicenseKeyID INT PRIMARY KEY,
@@ -56,8 +90,18 @@ CREATE TABLE LicenseKeys (
 );
 
 INSERT INTO LicenseKeys (LicenseKeyID, SoftwareID, LicenseKey, SerialNumber, ExpiryDate)
-VALUES (1, 1, 'ABCDEF123456', 'SN123', '2024-01-15'),
-       (2, 2, 'GHIJKL789012', 'SN456', '2024-02-20');
+VALUES 
+    (1, 1, 'AUTOCAD2023XYZ', 'SN1234', '2024-07-10'),
+    (2, 2, 'MATLABR2023aABC', 'SN5678', '2024-08-15'),
+    (3, 3, 'ILLUSTRATOR2023ZZZ', 'SN9999', '2024-09-05'),
+    (4, 4, 'UNITY2023.1ABC', 'SN5555', NULL),
+    (5, 5, 'ORACLE19CXYZ', 'SN7777', '2024-12-20'),
+    (6, 6, 'PREMIERE2023XYZ', 'SN8888', '2025-01-25'),
+    (7, 7, 'SKETCHUP2023ABC', 'SN6666', NULL),
+    (8, 8, 'LABVIEW2023XYZ', 'SN3333', '2025-03-05'),
+    (9, 9, 'SOLIDWORKS2023ABC', 'SN2222', '2025-04-10'),
+    (10, 10, 'PHOTOSHOP2022XYZ', 'SN1111', '2024-05-20'),
+    (11, 11, 'OFFICE365ABC', 'SN0000', '2024-06-10');
 
 CREATE TABLE SoftwareUpdates (
     UpdateID INT PRIMARY KEY,
@@ -67,8 +111,18 @@ CREATE TABLE SoftwareUpdates (
 );
 
 INSERT INTO SoftwareUpdates (UpdateID, SoftwareID, UpdateDate, Description)
-VALUES (1, 1, '2023-02-01', 'Bug fixes and performance improvements'),
-       (2, 2, '2023-03-15', 'Added new features and enhancements');
+VALUES 
+    (1, 1, '2023-07-20', 'Added new 3D modeling features'),
+    (2, 2, '2023-08-30', 'Improved performance and bug fixes'),
+    (3, 3, '2023-09-10', 'Enhanced design tools'),
+    (4, 4, '2023-11-30', 'Introduced new features for game development'),
+    (5, 5, '2023-12-25', 'Security patches and performance enhancements'),
+    (6, 6, '2024-01-30', 'Improved video editing capabilities'),
+    (7, 7, '2024-03-05', 'Updated modeling features and UI improvements'),
+    (8, 8, '2024-03-20', 'Added support for new hardware'),
+    (9, 9, '2024-04-15', 'Enhanced CAD tools and functionalities'),
+    (10, 10, '2023-05-30', 'Added AI-based editing features'),
+    (11, 11, '2023-06-20', 'Enhanced collaboration and cloud integration');
 
 CREATE TABLE SoftwareExpenses (
     ExpenseID INT PRIMARY KEY,
@@ -79,5 +133,15 @@ CREATE TABLE SoftwareExpenses (
 );
 
 INSERT INTO SoftwareExpenses (ExpenseID, SoftwareID, Cost, ExpenseDate, Description)
-VALUES (1, 1, 199.99, '2023-01-15', 'Initial purchase cost'),
-       (2, 2, 0, '2023-02-20', 'Academic license, no cost');
+VALUES 
+    (1, 1, 899.99, '2023-07-10', 'Initial purchase cost'),
+    (2, 2, 0, '2023-08-15', 'Academic license, no cost'),
+    (3, 3, 699.99, '2023-09-05', 'Initial purchase cost'),
+    (4, 4, 0, '2023-11-15', 'Educational license, no cost'),
+    (5, 5, 1999.99, '2023-12-20', 'Enterprise edition purchase'),
+    (6, 6, 799.99, '2024-01-25', 'Commercial license cost'),
+    (7, 7, 299.99, '2024-02-28', 'Educational license cost'),
+    (8, 8, 599.99, '2024-03-05', 'Academic license purchase'),
+    (9, 9, 899.99, '2024-04-10', 'Commercial license purchase'),
+    (10, 10, 599.99, '2023-05-20', 'Initial purchase cost'),
+    (11, 11, 99.99, '2023-06-10', 'Subscription renewal');
